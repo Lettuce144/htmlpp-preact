@@ -1,0 +1,35 @@
+{
+  "name": "htmlpp-preact",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "prerender": "npm run build && vite-plugin-ssr prerender",
+    "preview": "cross-env NODE_ENV=production node --loader=@mdx-js/node-loader server"
+  },
+  "dependencies": {
+    "@mdx-js/node-loader": "^3.1.0",
+    "@mdx-js/preact": "^3.1.0",
+    "@mdx-js/rollup": "^3.1.0",
+    "@preact/compat": "^18.3.1",
+    "compression": "^1.7.5",
+    "express": "^5.0.1",
+    "preact": "^10.25.0",
+    "preact-render-to-string": "^6.5.11",
+    "react": "npm:@preact/compat@^18.3.1",
+    "react-dom": "npm:@preact/compat@^18.3.1",
+    "sirv": "^3.0.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.9.1",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.0",
+    "cross-env": "^7.0.3",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.1"
+  }
+}
